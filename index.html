@@ -1,0 +1,375 @@
+ <!doctype html>
+<!--
+  Complete-HTML-Syntax.html
+  A single HTML file showing most commonly used HTML elements and syntax for learning.
+  Each section contains short examples and comments. Open this file in a browser to see
+  the rendered output and view-source to inspect the markup.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A comprehensive single-file HTML reference with examples of common tags and usage.">
+  <meta name="author" content="Suhail">
+  <title>Complete HTML Syntax — Learning File</title>
+
+  <!-- Favicon and manifest examples -->
+  <link rel="icon" href="#" />
+  <link rel="manifest" href="#">
+
+  <!-- External stylesheet (example) -->
+  <link rel="stylesheet" href="https://example.com/styles.css">
+
+  <!-- Inline CSS (for convenience in single-file examples) -->
+  <style>
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 16px; line-height: 1.5; padding: 16px; }
+    header, footer, nav, main, section, article { border: 1px dashed #eee; padding: 12px; margin: 8px 0; }
+    code { background:#f6f8fa; padding:2px 6px; border-radius:4px; }
+    pre { background:#f0f0f0; padding:8px; overflow:auto }
+    .k { color: #0b6; }
+  </style>
+
+  <!-- Example script loaded in head (defer vs async) -->
+  <script>
+    // Inline script — avoid heavy logic here; prefer defer or module below
+    console.log('Head inline script executed');
+  </script>
+</head>
+<body>
+  <!-- Page header and navigation -->
+  <header>
+    <h1>Complete HTML Syntax — Quick Reference</h1>
+    <p><small>Open this file in a browser and inspect the source to learn.</small></p>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#structure">Document structure</a></li>
+        <li><a href="#text">Text &amp; inline</a></li>
+        <li><a href="#media">Media &amp; graphics</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#semantics">Semantic elements</a></li>
+        <li><a href="#advanced">Advanced</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Document structure -->
+  <main>
+    <section id="structure">
+      <h2>Document structure</h2>
+      <p>Every HTML document starts with a <!doctype html> and a root <code>&lt;html&gt;</code> element.</p>
+      <pre>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;...&lt;/head&gt;
+  &lt;body&gt;...&lt;/body&gt;
+&lt;/html&gt;</pre>
+
+      <h3>Head contents</h3>
+      <ul>
+        <li><code>&lt;meta charset="utf-8"&gt;</code> — character encoding</li>
+        <li><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code> — responsive</li>
+        <li><code>&lt;title&gt;</code> — shown in browser tab</li>
+        <li><code>&lt;link&gt;</code> — stylesheets, favicons, manifests</li>
+        <li><code>&lt;script defer src="..."&gt;</code> — deferred script</li>
+        <li><code>&lt;script type="module" src="..."&gt;</code> — ES module</li>
+      </ul>
+
+      <h3>Common attributes</h3>
+      <p>Examples: <code>id</code>, <code>class</code>, <code>title</code>, <code>hidden</code>, <code>data-* (custom)</code>, <code>aria-*</code>.</p>
+      <pre>&lt;div id="intro" class="lead" data-user-id="123" aria-hidden="false"&gt;...&lt;/div&gt;</pre>
+    </section>
+
+    <!-- Text & inline elements -->
+    <section id="text">
+      <h2>Text-level semantics</h2>
+      <p>Headings: <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>.</p>
+      <h1>Heading 1 (h1)</h1>
+      <h2>Heading 2 (h2)</h2>
+      <h3>Heading 3 (h3)</h3>
+
+      <h3>Paragraphs and inline</h3>
+      <p>This is a paragraph. Inline elements: <strong>strong</strong>, <em>emphasis</em>, <mark>mark</mark>, <small>small</small>, <del>deleted</del>, <ins>inserted</ins>, <code>code</code>, <a href="#">link</a>.</p>
+
+      <h3>Lists</h3>
+      <p>Unordered list:</p>
+      <ul>
+        <li>First item</li>
+        <li>Second item
+          <ul>
+            <li>Nested item</li>
+          </ul>
+        </li>
+        <li>Third item</li>
+      </ul>
+
+      <p>Ordered list (start numbering and reversed):</p>
+      <ol start="5">
+        <li>Five</li>
+        <li>Six</li>
+      </ol>
+
+      <p>Definition list:</p>
+      <dl>
+        <dt>HTML</dt>
+        <dd>HyperText Markup Language</dd>
+        <dt>CSS</dt>
+        <dd>Cascading Style Sheets</dd>
+      </dl>
+
+      <h3>Blockquote and preformatted</h3>
+      <blockquote cite="https://example.com">
+        This is a blockquote — used for quoting external sources.
+      </blockquote>
+      <pre><code>// preformatted text block (preserves whitespace)
+function hello(){ console.log('hello'); }
+</code></pre>
+
+      <h3>Hyperlinks</h3>
+      <p><a href="https://developer.mozilla.org/" target="_blank" rel="noopener noreferrer">MDN Web Docs (external link)</a></p>
+    </section>
+
+    <!-- Media and graphics -->
+    <section id="media">
+      <h2>Media &amp; Graphics</h2>
+
+      <h3>Images</h3>
+      <p>Use <code>&lt;img&gt;</code> with alt text and srcset for responsive images.</p>
+      <img src="https://via.placeholder.com/300x120.png?text=Example" alt="Placeholder image" width="300">
+      <p>Figure &amp; figcaption:</p>
+      <figure>
+        <img src="https://via.placeholder.com/150" alt="avatar">
+        <figcaption>Figure caption describing the image.</figcaption>
+      </figure>
+
+      <h3>Audio &amp; Video</h3>
+      <p>Native controls and multiple sources for compatibility:</p>
+      <audio controls>
+        <source src="#" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+      <br>
+      <video controls width="320">
+        <source src="#" type="video/mp4">
+        Your browser does not support the video element.
+      </video>
+
+      <h3>Canvas &amp; SVG</h3>
+      <p>Canvas (pixel drawing) and inline SVG (vector):</p>
+      <canvas id="myCanvas" width="300" height="80" style="border:1px solid #ccc;"></canvas>
+
+      <svg width="120" height="60" role="img" aria-label="simple svg">
+        <rect width="100" height="50" x="10" y="5" rx="6" fill="#cfe" stroke="#2c3"/>
+        <text x="20" y="33" font-size="12">SVG Box</text>
+      </svg>
+
+      <script>
+        // simple canvas drawing — visible when you open the file
+        (function(){
+          const c = document.getElementById('myCanvas');
+          if(c && c.getContext){
+            const ctx = c.getContext('2d');
+            ctx.fillStyle = '#f2f2f2';
+            ctx.fillRect(0,0,300,80);
+            ctx.fillStyle = '#2a7';
+            ctx.font = '18px sans-serif';
+            ctx.fillText('Canvas drawing example', 8, 40);
+          }
+        })();
+      </script>
+
+      <h3>Picture element for responsive images</h3>
+      <picture>
+        <source media="(min-width: 800px)" srcset="https://via.placeholder.com/800x200">
+        <source media="(min-width: 400px)" srcset="https://via.placeholder.com/400x100">
+        <img src="https://via.placeholder.com/320x80" alt="responsive">
+      </picture>
+    </section>
+
+    <!-- Tables -->
+    <section id="tables">
+      <h2>Tables</h2>
+      <table border="1" cellpadding="6">
+        <caption>Simple data table</caption>
+        <thead>
+          <tr><th>Name</th><th>Role</th><th>Active</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Alice</td><td>Developer</td><td>true</td></tr>
+          <tr><td>Bob</td><td>Designer</td><td>false</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Footer: 2 rows</td></tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- Forms -->
+    <section id="forms">
+      <h2>Forms &amp; Inputs</h2>
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Contact us</legend>
+
+          <label for="name">Name:</label>
+          <input id="name" name="name" type="text" placeholder="Your name" required>
+          <br>
+
+          <label for="email">Email:</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required>
+          <br>
+
+          <label for="age">Age (number):</label>
+          <input id="age" name="age" type="number" min="0" max="150">
+          <br>
+
+          <label for="dob">Date of birth:</label>
+          <input id="dob" name="dob" type="date">
+          <br>
+
+          <label for="color">Favorite color:</label>
+          <input id="color" name="color" type="color">
+          <br>
+
+          <label for="range">Satisfaction (0-10):</label>
+          <input id="range" name="range" type="range" min="0" max="10" value="7">
+          <br>
+
+          <label>Choose a file:</label>
+          <input type="file" name="file" accept="image/*">
+          <br>
+
+          <label for="bio">Biography:</label>
+          <textarea id="bio" name="bio" rows="4" cols="40" placeholder="Tell us about yourself"></textarea>
+          <br>
+
+          <label for="country">Country:</label>
+          <select id="country" name="country">
+            <option value="in">India</option>
+            <option value="us">United States</option>
+            <option value="uk">United Kingdom</option>
+          </select>
+          <br>
+
+          <fieldset>
+            <legend>Preferences</legend>
+            <label><input type="checkbox" name="news" checked> Subscribe</label>
+            <label><input type="radio" name="contact" value="email" checked> Email</label>
+            <label><input type="radio" name="contact" value="phone"> Phone</label>
+          </fieldset>
+
+          <label for="search">Search (datalist):</label>
+          <input list="suggestions" id="search" name="search">
+          <datalist id="suggestions">
+            <option value="HTML">
+            <option value="CSS">
+            <option value="JavaScript">
+          </datalist>
+          <br>
+
+          <button type="submit">Submit</button>
+          <button type="reset">Reset</button>
+        </fieldset>
+      </form>
+
+      <h3>Form attributes &amp; API</h3>
+      <p>Attributes: <code>novalidate</code>, <code>autocomplete</code>, <code>enctype</code>, <code>target</code>.</p>
+      <p>Client-side: Constraint validation (required, pattern), <code>FormData</code> API, fetch/XHR for AJAX submit.</p>
+    </section>
+
+    <!-- Semantic elements -->
+    <section id="semantics">
+      <h2>Semantic elements</h2>
+      <article>
+        <header>
+          <h3>Article example</h3>
+          <p><small>By: Example Author</small></p>
+        </header>
+        <p>The <code>&lt;article&gt;</code> element represents a self-contained composition in a document.</p>
+        <footer><p>Article footer with <time datetime="2025-09-09">2025-09-09</time></p></footer>
+      </article>
+
+      <aside>
+        <h4>Aside</h4>
+        <p>Sidebar or tangential content.</p>
+      </aside>
+
+      <section>
+        <h4>Section</h4>
+        <p>Generic section grouping content.</p>
+      </section>
+    </section>
+
+    <!-- Advanced & interactive elements -->
+    <section id="advanced">
+      <h2>Advanced &amp; interactive elements</h2>
+
+      <h3>Details &amp; summary</h3>
+      <details>
+        <summary>Click to expand details</summary>
+        <p>Hidden content revealed when open.</p>
+      </details>
+
+      <h3>Template &amp; slot (Web Components)</h3>
+      <template id="card-template">
+        <style>/* internal styles for component */</style>
+        <div class="card">
+          <h3 class="card-title"></h3>
+          <p class="card-body"></p>
+        </div>
+      </template>
+
+      <div id="card-root"></div>
+      <script>
+        // simple example using template
+        (function(){
+          const tpl = document.getElementById('card-template');
+          const root = document.getElementById('card-root');
+          if(tpl && root){
+            const clone = tpl.content.cloneNode(true);
+            clone.querySelector('.card-title').textContent = 'Card from <template>';
+            clone.querySelector('.card-body').textContent = 'This content was cloned from the template element.';
+            root.appendChild(clone);
+          }
+        })();
+      </script>
+
+      <h3>Progress &amp; Meter</h3>
+      <p><progress value="35" max="100">35%</progress></p>
+      <p><meter value="0.6">60%</meter></p>
+
+      <h3>Accessibility (A11y)</h3>
+      <p>Use semantic HTML, alt text, ARIA attributes when necessary, landmarks (<code>&lt;main&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>), keyboard focus management, and sufficient color contrast.</p>
+
+      <h3>Microdata / JSON-LD (structured data)</h3>
+      <p>Example of JSON-LD for page schema.</p>
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Complete HTML Syntax — Learning File"
+        }
+      </script>
+
+      <h3>Security headers &amp; best practices (notes)</h3>
+      <ul>
+        <li>Use <code>rel="noopener noreferrer"</code> on external <code>target="_blank"</code> links.</li>
+        <li>Prefer CSP (Content Security Policy) via headers for production.</li>
+        <li>Sanitize user input; do not trust client-side validation only.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>File: <code>Complete-HTML-Syntax.html</code> — A compact, hands-on reference. Last updated: 2025-09-09</p>
+    <p>Want this split into individual focused examples (forms only, media only)? Ask and I’ll provide them.</p>
+  </footer>
+
+  <!-- Scripts loaded at end of body -->
+  <script defer src="https://example.com/script.js"></script>
+  <script type="module">
+    // ES module example
+    export function exampleModule(){ return 'module active'; }
+    console.log(exampleModule());
+  </script>
+</body>
+</html>
